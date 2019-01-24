@@ -544,6 +544,8 @@ static bool ocl_matchTemplate( InputArray _img, InputArray _templ, OutputArray _
 {
     int cn = _img.channels();
 
+    std::cout << "Calling OCL match template" << std::endl;
+
     if (cn > 4)
         return false;
 
@@ -843,6 +845,8 @@ static void matchTemplateMask( InputArray _img, InputArray _templ, OutputArray _
 
 static void common_matchTemplate( Mat& img, Mat& templ, Mat& result, int method, int cn )
 {
+    std::cout << "Calling match template common" << std::endl;
+
     if( method == CV_TM_CCORR )
         return;
 
@@ -1039,6 +1043,8 @@ static bool ipp_sqrDistance(const Mat& src, const Mat& tpl, Mat& dst)
 
 static bool ipp_matchTemplate( Mat& img, Mat& templ, Mat& result, int method)
 {
+    std::cout << "Calling IPP match template" << std::endl;
+
     CV_INSTRUMENT_REGION_IPP()
 
     if(img.channels() != 1)
